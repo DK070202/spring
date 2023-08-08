@@ -1,4 +1,4 @@
-package com.learning.aop.Log;
+package com.learning.aop.Custom.Log;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -12,18 +12,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingHandler {
 
-    @Before("@annotation(com.learning.aop.Log.Loggable)")
+    @Before("@annotation(com.learning.aop.Custom.Log.Loggable)")
     public void beforeLogging(JoinPoint joinPoint) {
         System.out.println("Before running loggingAdvice on method=");
 
     }
 
-    @After("@annotation(com.learning.aop.Log.Loggable)")
+    @After("@annotation(com.learning.aop.Custom.Log.Loggable)")
     public void afterLogging(JoinPoint joinPoint) {
         System.out.println("After running loggingAdvice on method=");
     }
 
-    @Around("@annotation(com.learning.aop.Log.Loggable)")
+    @Around("@annotation(com.learning.aop.Custom.Log.Loggable)")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("around");
         joinPoint.proceed();
